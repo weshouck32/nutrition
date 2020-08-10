@@ -162,7 +162,7 @@ const nutritionSearch = (page = 1) => {
     <div className="App">
       <h1>Nutrition Information App</h1>
       <div class="row app-text-left">
-        <input id="searchbox" type="text" value="yogurt"></input>
+        <input id="searchbox" type="text"></input>
           <Button onClick={nutritionSearch}>Search</Button>
       </div>
       <MUIDataTable title={"Nutrition Information"} data={data} columns={columns} options={options} />
