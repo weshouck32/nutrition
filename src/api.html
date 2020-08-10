@@ -1,0 +1,45 @@
+<script>
+  jQuery(document).ready(function($){
+    $(".container").addClass("container-fluid").removeClass("container");
+    //$("#fromDate").datepicker();
+    //$("#toDate").datepicker();
+
+    $('#save_new_device').click(function () {
+      var imei = $("#imei").val();
+      alert(imei);
+    });
+
+    $('#populateMap').click(function () {
+      var trackID = $("#trackID").val();
+      var fromDate = $("#fromDate").val();
+      var fromtime =  Date.parse(fromDate);
+
+      if (isNaN(fromtime)) {
+        var temp = new Date();
+        temp.setDate(temp.getDate()-1);
+        fromDate = temp;
+      }
+      fromtime = new Date(fromDate).toISOString();
+      var toDate = $("#toDate").val();
+      var totime = Date.parse(toDate);
+
+      if (isNaN(totime)) {
+        var temp = new Date();
+        temp.setDate(temp.getDate()+1000);
+        toDate = temp;
+      }
+      totime = new Date(toDate).toISOString();
+
+      $.ajax({
+        url: '/makelistajax.php?id=' + trackID + '&from=' + fromtime + '&to=' + totime,
+        type: "GET",
+        dataType: 'xml',
+        contentType: 'text/xml',
+        data: { id: trackID },
+        success: function(result) {
+          console.log(result);
+        }
+      });
+
+    });  });
+</script>
