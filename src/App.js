@@ -27,7 +27,7 @@ function App() {
           sort: true,
           customBodyRender: (value) => {
             return (
-            <div><img class="App-thumb" src={value} alt='test' /></div>
+            <div><img className="App-thumb" src={value} alt='test' /></div>
             );
           },
 
@@ -161,7 +161,7 @@ const nutritionSearch = (page = 1) => {
     <MuiThemeProvider >
     <div className="App">
       <h1>Nutrition Information App</h1>
-      <div class="row app-text-left">
+      <div className="row app-text-left">
         <input id="searchbox" type="text"></input>
           <Button onClick={nutritionSearch}>Search</Button>
       </div>
