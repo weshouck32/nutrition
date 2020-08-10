@@ -8,10 +8,10 @@ import $ from 'jquery';
 import './App.css';
 
 function App() {
-  const [page, setPage] = useState(1);
-  const [count, setCount] = useState(1);
+  const [page] = useState(1);
+  const [count] = useState(1);
   const [data, setData] = useState([["Loading Data..."]]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [setIsLoading] = useState(false);
 
   const APP_ID = process.env.REACT_APP_NUTRIION_API_APP_ID;
   const APP_KEY = process.env.REACT_APP_NUTRIION_API_APP_KEY;
@@ -50,12 +50,12 @@ function App() {
       { name: "nf_potassium", options: { filter: true, sort: true, } },
     ];
 
-  const changePage = (page) => {
-setIsLoading(true);
+  //const changePage = (page) => {
+//setIsLoading(true);
 //getData(page);
 
 //getData2(page);
-setPage(page);
+//setPage(page);
 // this.xhrRequest(http://localhost:3000/api/musers/${page}).then((res) => {
 // this.setState({
 // isLoading: false,
@@ -64,7 +64,7 @@ setPage(page);
 // count: res.total,
 // });
 // });
-};
+//};
 
   const options = {
     filter: true,
@@ -85,12 +85,12 @@ setPage(page);
     // a developer could react to change on an action basis or
     // examine the state as a whole and do whatever they want
 
-      switch (action) {
-        case "changePage":
-          changePage(tableState.page);
-          alert(page);
-          break;
-      }
+      //switch (action) {
+      //  case "changePage":
+      //    changePage(tableState.page);
+      //    alert(page);
+      //    break;
+    //  }
     },
   };
 
