@@ -20,6 +20,7 @@
     "react-scripts": "3.4.1",
     "reqwest": "^2.0.5"
   },
+  "homepage": "https://nutrition-app-adam.herokuapp.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
