@@ -11,7 +11,6 @@ function App() {
   const [page] = useState(1);
   const [count] = useState(1);
   const [data, setData] = useState([["Loading Data..."]]);
-  const [setIsLoading] = useState(false);
 
   const APP_ID = process.env.REACT_APP_NUTRIION_API_APP_ID;
   const APP_KEY = process.env.REACT_APP_NUTRIION_API_APP_KEY;
@@ -27,7 +26,7 @@ function App() {
           sort: true,
           customBodyRender: (value) => {
             return (
-            <div><img className="App-thumb" src={value} alt='test' /></div>
+            <div><img className="App-thumb" alt="" src={value} /></div>
             );
           },
 
@@ -51,7 +50,6 @@ function App() {
     ];
 
   //const changePage = (page) => {
-//setIsLoading(true);
 //getData(page);
 
 //getData2(page);
@@ -119,19 +117,17 @@ function getNutirtionData(nix_item_id) {
     contentType: 'application/json; charset=utf-8',
     data: { nix_item_id: nix_item_id },
     success: function(nutritiondata) {
-      var api_data = [nutritiondata.foods.photo.thumb, nutritiondata.foods.food_name, nutritiondata.foods.serving_qty, nutritiondata.foods.serving_unit,
-                      nutritiondata.foods.serving_weight_grams, nutritiondata.foods.nf_calories, nutritiondata.foods.nf_total_fat,
-                      nutritiondata.foods.nf_saturated_fat, nutritiondata.foods.nf_cholesterol, nutritiondata.foods.nf_sodium, nutritiondata.foods.nf_total_carbohydrate,
-                      nutritiondata.foods.nf_dietary_fiber, nutritiondata.foods.nf_sugars, nutritiondata.foods.nf_protein, nutritiondata.foods.nf_potassium];
+      var api_data = [nutritiondata.foods[0].photo.thumb, nutritiondata.foods[0].food_name, nutritiondata.foods[0].serving_qty, nutritiondata.foods[0].serving_unit,
+                      nutritiondata.foods[0].serving_weight_grams, nutritiondata.foods[0].nf_calories, nutritiondata.foods[0].nf_total_fat,
+                      nutritiondata.foods[0].nf_saturated_fat, nutritiondata.foods[0].nf_cholesterol, nutritiondata.foods[0].nf_sodium, nutritiondata.foods[0].nf_total_carbohydrate,
+                      nutritiondata.foods[0].nf_dietary_fiber, nutritiondata.foods[0].nf_sugars, nutritiondata.foods[0].nf_protein, nutritiondata.foods[0].nf_potassium];
       rows.push(api_data);
-
     }
   });
 
 }
 
 const nutritionSearch = (page = 1) => {
-  setIsLoading(true);
   $.ajax({
     url: "https://trackapi.nutritionix.com/v2/search/instant",
     type: "GET",
@@ -152,7 +148,6 @@ const nutritionSearch = (page = 1) => {
         //rows.push(api_data);
       }
       setData(rows);
-      setIsLoading(false);
     }
   });
  }
