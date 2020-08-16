@@ -11,7 +11,7 @@ function App() {
   const [page] = useState(1);
   const [count] = useState(1);
   const [data, setData] = useState([["Loading Data..."]]);
-  const [setIsLoading] = useState(false);
+//  const [setIsLoading] = useState(false);
 
   const APP_ID = process.env.REACT_APP_NUTRIION_API_APP_ID;
   const APP_KEY = process.env.REACT_APP_NUTRIION_API_APP_KEY;
@@ -146,7 +146,7 @@ const nutritionSearch = (page = 1) => {
   getNutritionIDs();
 
   for (var i = 0; i < nix.length; i++) {
-    var nutritiondata = getNutirtionData(nix[i]);
+    getNutirtionData(nix[i]);
   }
   setData(rows);
 
