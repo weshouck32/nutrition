@@ -16,6 +16,7 @@ function App() {
   const APP_ID = process.env.REACT_APP_NUTRIION_API_APP_ID;
   const APP_KEY = process.env.REACT_APP_NUTRIION_API_APP_KEY;
 
+
     useEffect(() => {
     //getData();
   });
@@ -80,6 +81,7 @@ function App() {
     },
     onTableChange: (action, tableState) => {
     console.log(action, tableState);
+    //this.setState({data});
     // a developer could react to change on an action basis or
     // examine the state as a whole and do whatever they want
 /*
